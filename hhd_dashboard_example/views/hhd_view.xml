@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+<template id="assets_backend" name="hhd_dashboard_example assets" inherit_id="web.assets_backend">
+    <xpath expr="." position="inside">
+        <script type="text/javascript" src="/hhd_dashboard_example/static/src/js/hhd.js"></script>
+    </xpath>
+</template>
+
+<record model="ir.actions.client" id="hhd_dashboard_example">
+    <field name="name">Dashboard</field>
+    <field name="tag">hhd_dashboard</field>
+</record>
+<menuitem id="hhd_menu_dashboard_example" parent="base.menu_administration" sequence="100" action="hhd_dashboard_example" groups="base.group_system"/>
+
+</data>
+</openerp>

@@ -1,0 +1,16 @@
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="task_project_kanban_view">
+            <field name="name">project.task.kanban</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_kanban"/>
+            <field name="arch" type="xml">
+                <xpath expr="//li/ul[@class='oe_kanban_colorpicker']" position="before">
+                    <t t-if="widget.editable"><li><a type="object">Quick Edit Task</a></li></t>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>

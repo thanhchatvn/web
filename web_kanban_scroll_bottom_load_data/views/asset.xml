@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <template id="assets_backend" name="web_kanban assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/web_kanban_scroll_bottom_load_data/static/src/js/kanban_scroll_bottom.js"></script>
+                <script type="text/javascript" src="/web_kanban_scroll_bottom_load_data/static/src/js/kanban_view.js"></script>
+            </xpath>
+        </template>
+
+    </data>
+</openerp>

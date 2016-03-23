@@ -1,0 +1,27 @@
+<openerp>
+
+    <record model="ir.ui.view" id="demo_dummy">
+        <field name="name">hr.department.orgchart</field>
+        <field name="model">hr.department</field>
+        <field name="arch" type="xml">
+            <orgchart string="Org Chart">
+
+            </orgchart>
+        </field>
+    </record>
+
+
+    <record id="open_module_tree_department" model="ir.actions.act_window">
+        <field name="name">Departments</field>
+        <field name="res_model">hr.department</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,form,orgchart</field>
+    </record>
+
+    <menuitem
+        action="open_module_tree_department"
+        id="menu_hr_department_tree"
+        sequence="1"
+        groups="base.group_hr_user"/>
+
+</openerp>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <template id="assets_backend" name="web_kanban_hover assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/web_kanban_hover/static/src/css/hover.css"/>
+                <script type="text/javascript" src="/web_kanban_hover/static/src/js/kaban_hover.js"/>
+            </xpath>
+        </template>
+
+    </data>
+</openerp>

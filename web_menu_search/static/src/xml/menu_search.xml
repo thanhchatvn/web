@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+<t t-name="MenuSearch">
+    <span class="oe_menu_search">
+        <div class="oe_menu_search">
+            <input type="text" class="oe_search_menu_input" placeholder="Find Menu here......" id="menu_name" autocomplete="true">
+            </input>
+            <input type="hidden" id="menu_action"/>
+
+        </div>
+    </span>
+</t>
+</templates>

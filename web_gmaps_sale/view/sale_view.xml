@@ -1,0 +1,87 @@
+<openerp>
+	<data>
+
+		<record id="view_order_form" model="ir.ui.view">
+            <field name="name">sale.order.form</field>
+            <field name="model">sale.order</field>
+			<field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+	            <xpath expr="//header" position="inside">
+		            <button name="get_lat_long_gmap"
+		                    string="Get Gmaps"
+		                    type="object"
+		                    icon="gtk-execute"
+				            class="oe_highlight"/>
+	            </xpath>
+	            <field name="partner_id" position="after">
+		            <field name="address"/>
+		            <field name="lat" readonly="True"/>
+		            <field name="lng" readonly="True"/>
+	            </field>
+            </field>
+		</record>
+
+		<record id='view_order_gmaps' model='ir.ui.view'>
+			<field name="name">sale.order.gmaps</field>
+			<field name="model">sale.order</field>
+			<field name="type">gmaps</field>
+			<field name="arch" type="xml">
+				<field name="name"/>
+				<field name="address"/>
+				<field name="lat"/>
+				<field name="lng"/>
+				<widget type="gmap_single_location"/>
+			</field>
+		</record>
+
+		<record id="sale.action_orders" model="ir.actions.act_window">
+            <field name="name">Sales Orders</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar,graph,gmaps</field>
+            <field name="search_view_id" ref="sale.view_sales_order_filter"/>
+            <field name="context">{
+                    'search_default_my_sale_orders_filter': 1
+                }
+            </field>
+            <field name="domain">[('state', 'not in', ('draft', 'sent', 'cancel'))]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a quotation that can be converted into a sales
+                    order.
+                </p><p>
+                    Odoo will help you efficiently handle the complete sales flow:
+                    quotation, sales order, delivery, invoicing and payment.
+                </p>
+            </field>
+        </record>
+
+
+		<record id="sale.action_quotations" model="ir.actions.act_window">
+            <field name="name">Quotations</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="sale.view_quotation_tree"/>
+            <field name="view_mode">tree,form,calendar,graph,gmaps</field>
+            <field name="context">{'search_default_my_sale_orders_filter': 1}</field>
+            <field name="domain">[('state','in',('draft','sent','cancel'))]</field>
+            <field name="search_view_id" ref="sale.view_sales_order_filter"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to create a quotation, the first step of a new sale.
+              </p><p>
+                Odoo will help you handle efficiently the complete sale flow:
+                from the quotation to the sales order, the
+                delivery, the invoicing and the payment collection.
+              </p><p>
+                The social feature helps you organize discussions on each sales
+                order, and allow your customers to keep track of the evolution
+                of the sales order.
+              </p>
+            </field>
+        </record>
+
+	</data>
+</openerp>

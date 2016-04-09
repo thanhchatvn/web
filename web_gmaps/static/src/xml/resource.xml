@@ -11,14 +11,14 @@
 	<t t-name="gmap_markers" style="height:500px;"> 
 		<div name="gmap" style="height:500px;" />
 	</t>	
-	<t t-name="gmap_route" style="height:500px;"> 
+	<t t-name="gmap_waypoints" style="height:500px;">
 		<div name="gmap" style="height:500px;" />
 	</t>	
 	 
-	 <div t-name="Gmaps" t-att-id="elem_id" style="height:600px; width: 1200px; frameborder: 0; marginheight: 0; marginwidth: 0; top:5px; bottom:5px; right:5px; left:5px; margin: 0; padding: 0; overflow: hidden;">
+	 <div t-name="Gmaps" t-att-id="elem_id" style="height:95%; width: 95%; frameborder: 0; marginheight: 0; marginwidth: 0; top:5px; bottom:5px; right:5px; left:5px; margin: 0; padding: 0; overflow: hidden;">
 
-            <div id="the_map"></div>
-		 	<div id="datas"></div>
+            <div id="map"></div>
+		 	<ul id="instructions"></ul>
 
     </div>
 </template>

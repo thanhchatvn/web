@@ -6,7 +6,7 @@
             <field name="model">sale.order</field>
 			<field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
-	            <xpath expr="//header" position="inside">
+	            <xpath expr="//field[@name='partner_id']" position="after">
 		            <button name="get_lat_long_gmap"
 		                    string="Get Gmaps"
 		                    type="object"
@@ -14,9 +14,9 @@
 				            class="oe_highlight"/>
 	            </xpath>
 	            <field name="partner_id" position="after">
-		            <field name="address"/>
-		            <field name="lat" readonly="True"/>
-		            <field name="lng" readonly="True"/>
+		            <field name="address" invisible="1"/>
+		            <field name="lat" readonly="True" invisible="1"/>
+		            <field name="lng" readonly="True" invisible="1"/>
 	            </field>
             </field>
 		</record>
@@ -30,7 +30,6 @@
 				<field name="address"/>
 				<field name="lat"/>
 				<field name="lng"/>
-				<widget type="gmap_single_location"/>
 			</field>
 		</record>
 

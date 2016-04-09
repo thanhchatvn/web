@@ -1,0 +1,58 @@
+<openerp>
+
+    <record model='ir.ui.view' id='fleet_vehicle_form'>
+        <field name="name">fleet.vehicle.form</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet">
+                <notebook>
+                    <page string="GEO Histories">
+                        <field name="address" widget="gmap_marker"/>
+                        <field name="lat" invisible="1"/>
+                        <field name="lng" invisible="1"/>
+                        <field name="geo_ids" nolabel="1" widget="gmap_waypoints">
+                            <tree string="Geo Histories" editable="top">
+                                <field name="address"/>
+                                <field name="lat"/>
+                                <field name="lng"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </xpath>
+        </field>
+    </record>
+
+    <record id='view_order_gmaps' model='ir.ui.view'>
+        <field name="name">fleet.vehicle.gmaps</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="type">gmaps</field>
+        <field name="arch" type="xml">
+            <field name="name"/>
+            <field name="address"/>
+            <field name="lat"/>
+            <field name="lng"/>
+        </field>
+    </record>
+
+    <record model='ir.actions.act_window' id='fleet.fleet_vehicle_act'>
+        <field name="name">Vehicles</field>
+        <field name="res_model">fleet.vehicle</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form,gmaps</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Click to create a new vehicle.
+          </p><p>
+            You will be able to manage your fleet by keeping track of the
+            contracts, services, fixed and recurring costs, odometers and
+            fuel logs associated to each vehicle.
+        </p><p>
+            Odoo will warn you when services or contract have to be
+            renewed.
+          </p>
+        </field>
+    </record>
+
+</openerp>
